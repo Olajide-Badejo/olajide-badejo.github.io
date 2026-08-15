@@ -2,6 +2,7 @@
 
 :root {
   --bg: #ffffff;
+  --surface: #f5f7f9;
   --text: #1c1e21;
   --muted: #5b6470;
   --hairline: #e6e8eb;
@@ -10,8 +11,10 @@
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 
-  --measure: 44rem;
-  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --measure: 42rem;
+  --shell: 70rem;
+  --rail: 17.5rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -22,6 +25,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #101418;
+    --surface: #161b21;
     --text: #e6e9ec;
     --muted: #98a1ab;
     --hairline: #232a31;
@@ -59,42 +63,88 @@ p {
 /* ---------------------------------------------------------------- layout */
 
 .page {
-  max-width: var(--measure);
+  max-width: var(--shell);
   margin-inline: auto;
   padding: var(--gutter);
 }
 
-main > section + section,
+/* mobile first: one column, sections divided by hairlines */
+main > section + section {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--hairline);
+}
+
+main,
 footer {
   margin-top: var(--space-xl);
   padding-top: var(--space-xl);
   border-top: 1px solid var(--hairline);
 }
 
-main {
-  margin-top: var(--space-xl);
-  padding-top: var(--space-xl);
-  border-top: 1px solid var(--hairline);
+/* -------------------------------------------------------- language switch */
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-lg);
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.2rem;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.lang-switch > * {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+}
+
+/* the active language is plain text, not a link */
+.lang-current {
+  background-color: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.lang-switch a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 150ms linear, background-color 150ms linear;
+}
+
+.lang-switch a:hover,
+.lang-switch a:focus-visible {
+  color: var(--accent);
+  background-color: var(--surface);
+  text-decoration: none;
 }
 
 /* ------------------------------------------------------------- typography */
 
 h1 {
   margin: 0 0 var(--space-sm);
-  font-size: 2rem;
+  font-size: clamp(2rem, 1.6rem + 1.4vw, 2.6rem);
   font-weight: 650;
-  line-height: 1.15;
-  letter-spacing: -0.015em;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 /* h2 reads as a quiet section label, not a competing headline */
 h2 {
   margin: 0 0 var(--space-md);
   color: var(--muted);
-  font-size: 1.25rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.3;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 a {
@@ -112,7 +162,7 @@ a:focus-visible {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 /* -------------------------------------------------------------- identity */
@@ -124,6 +174,7 @@ a:focus-visible {
 .identity .availability {
   margin-top: var(--space-xs);
   color: var(--muted);
+  text-wrap: pretty;
 }
 
 .identity-links {
@@ -131,14 +182,31 @@ a:focus-visible {
   flex-wrap: wrap;
   gap: var(--space-sm) var(--space-md);
   margin-top: var(--space-md);
+  font-size: 0.9375rem;
+}
+
+.identity-links a {
+  overflow-wrap: anywhere;
 }
 
 /* ---------------------------------------------------- selected work rows */
+
+.about p,
+.work-item > p,
+.work-more {
+  max-width: var(--measure);
+  text-wrap: pretty;
+}
 
 .work-list {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.work-item {
+  border-radius: 10px;
+  transition: background-color 150ms linear;
 }
 
 .work-item + .work-item {
@@ -165,6 +233,7 @@ a:focus-visible {
 
 .skill-groups {
   margin: 0;
+  max-width: var(--measure);
 }
 
 .skill-group + .skill-group {
@@ -174,8 +243,8 @@ a:focus-visible {
 .skill-group dt {
   color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -183,11 +252,12 @@ a:focus-visible {
   margin: var(--space-xs) 0 0;
 }
 
-/* ------------------------------------------- education and experience */
+/* ---------------------------------------- education and experience */
 
 .history-list {
   margin: 0;
   padding: 0;
+  max-width: var(--measure);
   list-style: none;
 }
 
@@ -197,15 +267,72 @@ a:focus-visible {
 
 /* ---------------------------------------------------------------- footer */
 
+footer {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
 footer a {
   overflow-wrap: anywhere;
 }
 
-/* -------------------------------------------------------------- a11y prefs */
+/* -------------------------------------------- desktop: two column shell */
+
+@media (min-width: 62rem) {
+  .layout {
+    display: grid;
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+    gap: clamp(3rem, 6vw, 5.5rem);
+    align-items: start;
+  }
+
+  /* the identity rail stays in view while the work scrolls past it */
+  .identity {
+    position: sticky;
+    top: var(--gutter);
+  }
+
+  .identity-links {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  /* the rail already separates the columns, so main needs no top rule */
+  main {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  /* hover affordance on work rows, bled into the column gutter */
+  .work-list {
+    margin-inline: -1rem;
+  }
+
+  .work-item {
+    padding: 0.85rem 1rem;
+  }
+
+  .work-item + .work-item {
+    margin-top: var(--space-md);
+  }
+
+  .work-item:hover {
+    background-color: var(--surface);
+  }
+
+  .work-more {
+    margin-top: var(--space-md);
+  }
+}
+
+/* ------------------------------------------------------------ a11y prefs */
 
 @media (prefers-reduced-motion: reduce) {
   body,
-  a {
+  a,
+  .work-item,
+  .lang-switch a {
     transition: none;
   }
 }
@@ -215,6 +342,7 @@ footer a {
 @media print {
   :root {
     --bg: #ffffff;
+    --surface: #ffffff;
     --text: #000000;
     --muted: #000000;
     --hairline: #bbbbbb;
@@ -231,6 +359,19 @@ footer a {
     padding: 0;
   }
 
+  /* the switch is navigation, and navigation does not print */
+  .topbar {
+    display: none;
+  }
+
+  .layout {
+    display: block;
+  }
+
+  .identity {
+    position: static;
+  }
+
   a,
   a:hover {
     text-decoration: none;
@@ -243,9 +384,14 @@ footer a {
     padding-top: var(--space-lg);
   }
 
+  .work-list {
+    margin-inline: 0;
+  }
+
   .work-item,
   .skill-group,
   .history-list li {
+    padding: 0;
     break-inside: avoid;
   }
 }

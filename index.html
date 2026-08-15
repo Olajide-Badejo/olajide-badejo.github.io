@@ -7,110 +7,126 @@
   <title>Olajide Badejo | HPC and ML systems engineer</title>
   <meta name="description" content="HPC and ML systems engineer. CUDA, C++, PyTorch, MLIR. MSc Computational Engineering at Ruhr-Universität Bochum.">
   <link rel="canonical" href="https://olajide-badejo.github.io/">
+  <link rel="alternate" hreflang="en" href="https://olajide-badejo.github.io/">
+  <link rel="alternate" hreflang="de" href="https://olajide-badejo.github.io/de.html">
+  <link rel="alternate" hreflang="x-default" href="https://olajide-badejo.github.io/">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Olajide Badejo">
   <meta property="og:description" content="HPC and ML systems engineer. CUDA, C++, PyTorch, MLIR. MSc Computational Engineering at Ruhr-Universität Bochum.">
   <meta property="og:url" content="https://olajide-badejo.github.io/">
+  <meta property="og:locale" content="en">
+  <meta property="og:locale:alternate" content="de">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="page">
 
-    <header class="identity">
-      <h1>Olajide Badejo</h1>
-      <p class="role">HPC and ML systems engineer (MSc Computational Engineering).</p>
-      <p class="availability">Germany. Open to relocation and remote. Available immediately for full time roles; valid work permit.</p>
-      <nav class="identity-links" aria-label="Contact and profiles">
-        <a href="https://github.com/Olajide-Badejo" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/olajide-badejo" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:olajideayomidebadejo@gmail.com">olajideayomidebadejo@gmail.com</a>
+    <div class="topbar">
+      <nav class="lang-switch" aria-label="Language">
+        <span class="lang-current" aria-current="page">English</span>
+        <a href="de.html" lang="de" hreflang="de">Deutsch</a>
       </nav>
-    </header>
+    </div>
 
-    <main>
+    <div class="layout">
 
-      <section class="about" aria-labelledby="about-heading">
-        <h2 id="about-heading">About</h2>
-        <p>I build and measure performance critical systems across the stack: CUDA kernels tuned against vendor libraries, parallel numerical runtimes over MPI and threads, training and inference tooling for PyTorch, and hardware adjacent work from an MLIR compiler backend to a formally verified async FIFO IP. I started in mechanical engineering, building physical systems, and moved to computational engineering to build the software that simulates and accelerates them.</p>
-      </section>
+      <header class="identity">
+        <h1>Olajide Badejo</h1>
+        <p class="role">HPC and ML systems engineer (MSc Computational Engineering).</p>
+        <p class="availability">Germany. Open to relocation and remote. Available immediately for full time roles; valid work permit.</p>
+        <nav class="identity-links" aria-label="Contact and profiles">
+          <a href="https://github.com/Olajide-Badejo" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/olajide-badejo" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:olajideayomidebadejo@gmail.com">olajideayomidebadejo@gmail.com</a>
+        </nav>
+      </header>
 
-      <section class="selected-work" aria-labelledby="work-heading">
-        <h2 id="work-heading">Selected work</h2>
-        <ul class="work-list">
-          <li class="work-item">
-            <a href="https://github.com/Olajide-Badejo/MLIR-Backend-for-a-Simulated-Edge-NPU" target="_blank" rel="noopener">MLIR-Backend-for-a-Simulated-Edge-NPU</a>
-            <p>A deep learning compiler backend lowering ONNX models through custom MLIR dialects to a binary instruction stream for a simulated NPU.</p>
-          </li>
-          <li class="work-item">
-            <a href="https://github.com/Olajide-Badejo/Parallel-Numerical-Library" target="_blank" rel="noopener">Parallel-Numerical-Library</a>
-            <p>A C++23 library whose iterative solvers run unchanged over serial, OpenMP, threads, MPI, and CUDA backends and produce bit identical results.</p>
-          </li>
-          <li class="work-item">
-            <a href="https://github.com/Olajide-Badejo/Low-Power-Async-CDC-FIFO-IP" target="_blank" rel="noopener">Low-Power-Async-CDC-FIFO-IP</a>
-            <p>A parameterized asynchronous clock domain crossing FIFO in SystemVerilog with gray code pointers, low power intent, and formal verification.</p>
-          </li>
-          <li class="work-item">
-            <a href="https://github.com/Olajide-Badejo/CUDA-Kernel-Library" target="_blank" rel="noopener">CUDA-Kernel-Library</a>
-            <p>CUDA GEMM taken from a naive baseline to tensor cores through logged profiler driven optimization rounds, benchmarked against cuBLAS on the same GPU.</p>
-          </li>
-          <li class="work-item">
-            <a href="https://github.com/Olajide-Badejo/Ring-AllReduce" target="_blank" rel="noopener">Ring-AllReduce</a>
-            <p>Ring allreduce built from MPI point to point primitives.</p>
-          </li>
-          <li class="work-item">
-            <a href="https://github.com/Olajide-Badejo/Particle-Physics-Simulation" target="_blank" rel="noopener">Particle-Physics-Simulation</a>
-            <p>A CUDA engine for N-body gravity and SPH fluids, with every optimization step measured and correctness pinned by conservation and distribution gates.</p>
-          </li>
-        </ul>
-        <p class="work-more">More repositories, including an out of tree <a href="https://github.com/Olajide-Badejo/LLVM-Optimization-Pass-Framework" target="_blank" rel="noopener">LLVM pass framework</a>, CPU microbenchmarks, GPU roofline profiling, MPI collective benchmarking, and ML experiment tooling, are on <a href="https://github.com/Olajide-Badejo?tab=repositories" target="_blank" rel="noopener">my GitHub profile</a>.</p>
-      </section>
+      <main>
 
-      <section class="skills" aria-labelledby="skills-heading">
-        <h2 id="skills-heading">Skills</h2>
-        <dl class="skill-groups">
-          <div class="skill-group">
-            <dt>Languages</dt>
-            <dd>C++, Python, C, CUDA, SystemVerilog, Assembly (x86-64, AArch64), MATLAB</dd>
-          </div>
-          <div class="skill-group">
-            <dt>GPU and HPC</dt>
-            <dd>CUDA kernel optimization, OpenMP, MPI, pthreads and C++ threads, SIMD (AVX2, NEON), Nsight profiling, roofline analysis</dd>
-          </div>
-          <div class="skill-group">
-            <dt>ML and frameworks</dt>
-            <dd>PyTorch, torch.distributed, NumPy, pandas, experiment tracking and training diagnostics</dd>
-          </div>
-          <div class="skill-group">
-            <dt>Compilers and hardware</dt>
-            <dd>MLIR, LLVM, RTL design and formal verification (SymbiYosys), Yosys and OpenSTA flows</dd>
-          </div>
-          <div class="skill-group">
-            <dt>Tools</dt>
-            <dd>Git, CMake, Docker, Linux and WSL2, GitHub Actions, LaTeX, ANSYS, Siemens NX</dd>
-          </div>
-        </dl>
-      </section>
+        <section class="about" aria-labelledby="about-heading">
+          <h2 id="about-heading">About</h2>
+          <p>I build and measure performance critical systems across the stack: CUDA kernels tuned against vendor libraries, parallel numerical runtimes over MPI and threads, training and inference tooling for PyTorch, and hardware adjacent work from an MLIR compiler backend to a formally verified async FIFO IP. I started in mechanical engineering, building physical systems, and moved to computational engineering to build the software that simulates and accelerates them.</p>
+        </section>
 
-      <section class="history" aria-labelledby="history-heading">
-        <h2 id="history-heading">Education and experience</h2>
-        <ul class="history-list">
-          <li>MSc Computational Engineering, Ruhr-Universität Bochum, 2024 to present</li>
-          <li>BEng Mechanical Engineering, Federal University of Technology Akure, 2017 to 2023, First Class Honors</li>
-          <li>Engineering Intern, Simulation and Optimization, Whitelegg Nigeria Ltd, 2023 to 2024</li>
-          <li>Data Engineering Intern, Monitoring and Automation, Chikki Foods Industries, 2021</li>
-        </ul>
-      </section>
+        <section class="selected-work" aria-labelledby="work-heading">
+          <h2 id="work-heading">Selected work</h2>
+          <ul class="work-list">
+            <li class="work-item">
+              <a href="https://github.com/Olajide-Badejo/MLIR-Backend-for-a-Simulated-Edge-NPU" target="_blank" rel="noopener">MLIR-Backend-for-a-Simulated-Edge-NPU</a>
+              <p>A deep learning compiler backend lowering ONNX models through custom MLIR dialects to a binary instruction stream for a simulated NPU.</p>
+            </li>
+            <li class="work-item">
+              <a href="https://github.com/Olajide-Badejo/Parallel-Numerical-Library" target="_blank" rel="noopener">Parallel-Numerical-Library</a>
+              <p>A C++23 library whose iterative solvers run unchanged over serial, OpenMP, threads, MPI, and CUDA backends and produce bit identical results.</p>
+            </li>
+            <li class="work-item">
+              <a href="https://github.com/Olajide-Badejo/Low-Power-Async-CDC-FIFO-IP" target="_blank" rel="noopener">Low-Power-Async-CDC-FIFO-IP</a>
+              <p>A parameterized asynchronous clock domain crossing FIFO in SystemVerilog with gray code pointers, low power intent, and formal verification.</p>
+            </li>
+            <li class="work-item">
+              <a href="https://github.com/Olajide-Badejo/CUDA-Kernel-Library" target="_blank" rel="noopener">CUDA-Kernel-Library</a>
+              <p>CUDA GEMM taken from a naive baseline to tensor cores through logged profiler driven optimization rounds, benchmarked against cuBLAS on the same GPU.</p>
+            </li>
+            <li class="work-item">
+              <a href="https://github.com/Olajide-Badejo/Ring-AllReduce" target="_blank" rel="noopener">Ring-AllReduce</a>
+              <p>Ring allreduce built from MPI point to point primitives.</p>
+            </li>
+            <li class="work-item">
+              <a href="https://github.com/Olajide-Badejo/Particle-Physics-Simulation" target="_blank" rel="noopener">Particle-Physics-Simulation</a>
+              <p>A CUDA engine for N-body gravity and SPH fluids, with every optimization step measured and correctness pinned by conservation and distribution gates.</p>
+            </li>
+          </ul>
+          <p class="work-more">More repositories, including an out of tree <a href="https://github.com/Olajide-Badejo/LLVM-Optimization-Pass-Framework" target="_blank" rel="noopener">LLVM pass framework</a>, CPU microbenchmarks, GPU roofline profiling, MPI collective benchmarking, and ML experiment tooling, are on <a href="https://github.com/Olajide-Badejo?tab=repositories" target="_blank" rel="noopener">my GitHub profile</a>.</p>
+        </section>
 
-      <!--
-      <section class="recognition" aria-labelledby="recognition-heading">
-        <h2 id="recognition-heading">Recognition</h2>
-        Section intentionally reserved; add awards, talks, or publications here
-        when there is one worth a recruiter's time.
-      </section>
-      -->
+        <section class="skills" aria-labelledby="skills-heading">
+          <h2 id="skills-heading">Skills</h2>
+          <dl class="skill-groups">
+            <div class="skill-group">
+              <dt>Languages</dt>
+              <dd>C++, Python, C, CUDA, SystemVerilog, Assembly (x86-64, AArch64), MATLAB</dd>
+            </div>
+            <div class="skill-group">
+              <dt>GPU and HPC</dt>
+              <dd>CUDA kernel optimization, OpenMP, MPI, pthreads and C++ threads, SIMD (AVX2, NEON), Nsight profiling, roofline analysis</dd>
+            </div>
+            <div class="skill-group">
+              <dt>ML and frameworks</dt>
+              <dd>PyTorch, torch.distributed, NumPy, pandas, experiment tracking and training diagnostics</dd>
+            </div>
+            <div class="skill-group">
+              <dt>Compilers and hardware</dt>
+              <dd>MLIR, LLVM, RTL design and formal verification (SymbiYosys), Yosys and OpenSTA flows</dd>
+            </div>
+            <div class="skill-group">
+              <dt>Tools</dt>
+              <dd>Git, CMake, Docker, Linux and WSL2, GitHub Actions, LaTeX, ANSYS, Siemens NX</dd>
+            </div>
+          </dl>
+        </section>
 
-    </main>
+        <section class="history" aria-labelledby="history-heading">
+          <h2 id="history-heading">Education and experience</h2>
+          <ul class="history-list">
+            <li>MSc Computational Engineering, Ruhr-Universität Bochum, 2024 to present</li>
+            <li>BEng Mechanical Engineering, Federal University of Technology Akure, 2017 to 2023, First Class Honors</li>
+            <li>Engineering Intern, Simulation and Optimization, Whitelegg Nigeria Ltd, 2023 to 2024</li>
+            <li>Data Engineering Intern, Monitoring and Automation, Chikki Foods Industries, 2021</li>
+          </ul>
+        </section>
+
+        <!--
+        <section class="recognition" aria-labelledby="recognition-heading">
+          <h2 id="recognition-heading">Recognition</h2>
+          Section intentionally reserved; add awards, talks, or publications here
+          when there is one worth a recruiter's time.
+        </section>
+        -->
+
+      </main>
+
+    </div>
 
     <footer>
       <p><a href="mailto:olajideayomidebadejo@gmail.com">olajideayomidebadejo@gmail.com</a></p>
