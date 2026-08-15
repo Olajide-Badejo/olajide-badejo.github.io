@@ -177,6 +177,16 @@ a:focus-visible {
   text-wrap: pretty;
 }
 
+.identity .languages {
+  margin-top: var(--space-sm);
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.identity .languages span {
+  padding-inline: 0.2rem;
+}
+
 .identity-links {
   display: flex;
   flex-wrap: wrap;
@@ -187,6 +197,27 @@ a:focus-visible {
 
 .identity-links a {
   overflow-wrap: anywhere;
+}
+
+/* sits directly under the email, closing the identity block */
+.identity .location {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: var(--space-sm);
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.pin {
+  flex: none;
+  width: 0.95em;
+  height: 0.95em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 /* ---------------------------------------------------- selected work rows */
@@ -268,12 +299,22 @@ a:focus-visible {
 /* ---------------------------------------------------------------- footer */
 
 footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-md);
   color: var(--muted);
   font-size: 0.9375rem;
 }
 
 footer a {
   overflow-wrap: anywhere;
+}
+
+/* <small> carries the legal small print semantics; the size is set here */
+.copyright small {
+  font-size: inherit;
 }
 
 /* -------------------------------------------- desktop: two column shell */
