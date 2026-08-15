@@ -308,10 +308,6 @@ footer {
   font-size: 0.9375rem;
 }
 
-footer a {
-  overflow-wrap: anywhere;
-}
-
 /* <small> carries the legal small print semantics; the size is set here */
 .copyright small {
   font-size: inherit;
