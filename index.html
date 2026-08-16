@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>Olajide Badejo | HPC and ML systems engineer</title>
-  <meta name="description" content="HPC and ML systems engineer. CUDA, C++, PyTorch, MLIR. MSc Computational Engineering at Ruhr-Universität Bochum.">
+  <title>Olajide Badejo | GPU, HPC, and compiler engineering</title>
+  <meta name="description" content="I write performance critical systems code and publish the measurements. CUDA kernels at 90% of cuBLAS, an MLIR backend, parallel solvers across five backends. MSc Computational Engineering at Ruhr-Universität Bochum.">
   <link rel="canonical" href="https://olajide-badejo.github.io/">
   <link rel="alternate" hreflang="en" href="https://olajide-badejo.github.io/">
   <link rel="alternate" hreflang="de" href="https://olajide-badejo.github.io/de.html">
   <link rel="alternate" hreflang="x-default" href="https://olajide-badejo.github.io/">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Olajide Badejo">
-  <meta property="og:description" content="HPC and ML systems engineer. CUDA, C++, PyTorch, MLIR. MSc Computational Engineering at Ruhr-Universität Bochum.">
+  <meta property="og:description" content="I write performance critical systems code and publish the measurements. CUDA kernels at 90% of cuBLAS, an MLIR backend, parallel solvers across five backends. MSc Computational Engineering at Ruhr-Universität Bochum.">
   <meta property="og:url" content="https://olajide-badejo.github.io/">
   <meta property="og:locale" content="en">
   <meta property="og:locale:alternate" content="de">
@@ -33,7 +33,7 @@
 
       <header class="identity">
         <h1>Olajide Badejo</h1>
-        <p class="role">HPC and ML systems engineer (MSc Computational Engineering).</p>
+        <p class="role">GPU kernels, parallel numerics, and compiler backends (MSc Computational Engineering).</p>
         <p class="availability">Open to relocation and remote. Available immediately for full time roles; valid work permit.</p>
         <p class="languages">English (Native) <span aria-hidden="true">|</span> German (B2)</p>
         <nav class="identity-links" aria-label="Contact and profiles">
@@ -54,35 +54,35 @@
 
         <section class="about" aria-labelledby="about-heading">
           <h2 id="about-heading">About</h2>
-          <p>I build and measure performance critical systems across the stack: CUDA kernels tuned against vendor libraries, parallel numerical runtimes over MPI and threads, training and inference tooling for PyTorch, and hardware adjacent work from an MLIR compiler backend to a formally verified async FIFO IP. I started in mechanical engineering, building physical systems, and moved to computational engineering to build the software that simulates and accelerates them.</p>
+          <p>I write performance critical systems code and measure it against the best baseline I can get my hands on, usually the vendor library or the hardware ceiling. Every project below publishes its numbers and the harness that produced them, because a speedup nobody can reproduce is a claim, not a result. I started in mechanical engineering, building physical systems, and moved to computational engineering to build the software that simulates and accelerates them.</p>
         </section>
 
         <section class="selected-work" aria-labelledby="work-heading">
           <h2 id="work-heading">Selected work</h2>
           <ul class="work-list">
             <li class="work-item">
+              <a href="https://github.com/Olajide-Badejo/CUDA-Kernel-Library" target="_blank" rel="noopener">CUDA-Kernel-Library</a>
+              <p>A GEMM ladder from a 1,908 GFLOP/s naive kernel to 54,985 GFLOP/s using mma.sync, ldmatrix, and swizzled shared memory, which is 90% of cuBLAS in FP16 on the same GPU, with the tensor pipe at 83% of speed of light. Each rung is a separate kernel with its profiler run committed.</p>
+            </li>
+            <li class="work-item">
               <a href="https://github.com/Olajide-Badejo/MLIR-Backend-for-a-Simulated-Edge-NPU" target="_blank" rel="noopener">MLIR-Backend-for-a-Simulated-Edge-NPU</a>
-              <p>A deep learning compiler backend lowering ONNX models through custom MLIR dialects to a binary instruction stream for a simulated NPU.</p>
+              <p>A deep learning compiler backend lowering ONNX through custom MLIR dialects to a binary instruction stream for a simulated NPU. On LeNet, -O2 takes 91 instructions to 70, 23,421 simulated cycles to 12,710, and DRAM traffic from 339 KB to 177 KB, with output matching onnxruntime to 3e-8.</p>
             </li>
             <li class="work-item">
               <a href="https://github.com/Olajide-Badejo/Parallel-Numerical-Library" target="_blank" rel="noopener">Parallel-Numerical-Library</a>
-              <p>A C++23 library whose iterative solvers run unchanged over serial, OpenMP, threads, MPI, and CUDA backends and produce bit identical results.</p>
-            </li>
-            <li class="work-item">
-              <a href="https://github.com/Olajide-Badejo/Low-Power-Async-CDC-FIFO-IP" target="_blank" rel="noopener">Low-Power-Async-CDC-FIFO-IP</a>
-              <p>A parameterized asynchronous clock domain crossing FIFO in SystemVerilog with gray code pointers, low power intent, and formal verification.</p>
-            </li>
-            <li class="work-item">
-              <a href="https://github.com/Olajide-Badejo/CUDA-Kernel-Library" target="_blank" rel="noopener">CUDA-Kernel-Library</a>
-              <p>CUDA GEMM taken from a naive baseline to tensor cores through logged profiler driven optimization rounds, benchmarked against cuBLAS on the same GPU.</p>
-            </li>
-            <li class="work-item">
-              <a href="https://github.com/Olajide-Badejo/Ring-AllReduce" target="_blank" rel="noopener">Ring-AllReduce</a>
-              <p>Ring allreduce built from MPI point to point primitives.</p>
+              <p>A C++23 library whose iterative solvers run unchanged over serial, OpenMP, threads, MPI, and CUDA backends and return bit identical results. Measured against each device's own STREAM bandwidth, 62.3 GiB/s on the CPU and 549.7 GiB/s on the GPU, red black Gauss Seidel reaches 45.7% and 47.1% of them. 440 configurations, reproducible end to end in 23 minutes.</p>
             </li>
             <li class="work-item">
               <a href="https://github.com/Olajide-Badejo/Particle-Physics-Simulation" target="_blank" rel="noopener">Particle-Physics-Simulation</a>
-              <p>A CUDA engine for N-body gravity and SPH fluids, with every optimization step measured and correctness pinned by conservation and distribution gates.</p>
+              <p>A CUDA engine for N-body gravity and SPH fluids sustaining 17.47 TFLOP/s in FP32, with shared memory tiling 1.93x over the naive kernel at 200,000 particles. Correctness is pinned by ten gates, including energy drift of 1.33e-05 over 10,000 steps.</p>
+            </li>
+            <li class="work-item">
+              <a href="https://github.com/Olajide-Badejo/Ring-AllReduce" target="_blank" rel="noopener">Ring-AllReduce</a>
+              <p>Ring allreduce built from MPI point to point primitives, then fitted to the alpha beta cost model at 0.250 us per message and 305.4 ps per byte, R squared 0.981 across 375 points. The write up is explicit about where it loses to the vendor collective and why.</p>
+            </li>
+            <li class="work-item">
+              <a href="https://github.com/Olajide-Badejo/Low-Power-Async-CDC-FIFO-IP" target="_blank" rel="noopener">Low-Power-Async-CDC-FIFO-IP</a>
+              <p>A parameterized asynchronous clock domain crossing FIFO in SystemVerilog with gray code pointers and low power intent, proven bounded in SymbiYosys and swept across 60 configurations for area, power, and timing.</p>
             </li>
           </ul>
           <p class="work-more">More repositories, including an out of tree <a href="https://github.com/Olajide-Badejo/LLVM-Optimization-Pass-Framework" target="_blank" rel="noopener">LLVM pass framework</a>, CPU microbenchmarks, GPU roofline profiling, MPI collective benchmarking, and ML experiment tooling, are on <a href="https://github.com/Olajide-Badejo?tab=repositories" target="_blank" rel="noopener">my GitHub profile</a>.</p>
@@ -97,15 +97,15 @@
             </div>
             <div class="skill-group">
               <dt>GPU and HPC</dt>
-              <dd>CUDA kernel optimization, OpenMP, MPI, pthreads and C++ threads, SIMD (AVX2, NEON), Nsight profiling, roofline analysis</dd>
+              <dd>CUDA kernel optimization, tensor core programming (mma.sync, WMMA), OpenMP, MPI, pthreads and C++ threads, SIMD (AVX2, NEON), Nsight profiling, roofline and speed of light analysis</dd>
+            </div>
+            <div class="skill-group">
+              <dt>Compilers and hardware</dt>
+              <dd>MLIR, LLVM, ONNX lowering, RTL design and formal verification (SymbiYosys), Yosys and OpenSTA flows</dd>
             </div>
             <div class="skill-group">
               <dt>ML and frameworks</dt>
               <dd>PyTorch, torch.distributed, NumPy, pandas, experiment tracking and training diagnostics</dd>
-            </div>
-            <div class="skill-group">
-              <dt>Compilers and hardware</dt>
-              <dd>MLIR, LLVM, RTL design and formal verification (SymbiYosys), Yosys and OpenSTA flows</dd>
             </div>
             <div class="skill-group">
               <dt>Tools</dt>

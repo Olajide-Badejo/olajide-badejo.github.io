@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>Olajide Badejo | HPC- und ML-Systemingenieur</title>
-  <meta name="description" content="HPC- und ML-Systemingenieur. CUDA, C++, PyTorch, MLIR. M.Sc. Computational Engineering an der Ruhr-Universität Bochum.">
+  <title>Olajide Badejo | GPU, HPC und Compilerbau</title>
+  <meta name="description" content="Ich schreibe performancekritischen Systemcode und veröffentliche die Messungen. CUDA-Kernel bei 90 % von cuBLAS, ein MLIR-Backend, parallele Löser über fünf Backends. M.Sc. Computational Engineering an der Ruhr-Universität Bochum.">
   <link rel="canonical" href="https://olajide-badejo.github.io/de.html">
   <link rel="alternate" hreflang="en" href="https://olajide-badejo.github.io/">
   <link rel="alternate" hreflang="de" href="https://olajide-badejo.github.io/de.html">
   <link rel="alternate" hreflang="x-default" href="https://olajide-badejo.github.io/">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Olajide Badejo">
-  <meta property="og:description" content="HPC- und ML-Systemingenieur. CUDA, C++, PyTorch, MLIR. M.Sc. Computational Engineering an der Ruhr-Universität Bochum.">
+  <meta property="og:description" content="Ich schreibe performancekritischen Systemcode und veröffentliche die Messungen. CUDA-Kernel bei 90 % von cuBLAS, ein MLIR-Backend, parallele Löser über fünf Backends. M.Sc. Computational Engineering an der Ruhr-Universität Bochum.">
   <meta property="og:url" content="https://olajide-badejo.github.io/de.html">
   <meta property="og:locale" content="de">
   <meta property="og:locale:alternate" content="en">
@@ -33,7 +33,7 @@
 
       <header class="identity">
         <h1>Olajide Badejo</h1>
-        <p class="role">HPC- und ML-Systemingenieur (M.Sc. Computational Engineering).</p>
+        <p class="role">GPU-Kernel, parallele Numerik und Compiler-Backends (M.Sc. Computational Engineering).</p>
         <p class="availability">Umzugsbereit und offen für Remote-Arbeit. Ab sofort in Vollzeit verfügbar, gültige Arbeitserlaubnis.</p>
         <p class="languages">Englisch (Muttersprache) <span aria-hidden="true">|</span> Deutsch (B2)</p>
         <nav class="identity-links" aria-label="Kontakt und Profile">
@@ -54,35 +54,35 @@
 
         <section class="about" aria-labelledby="about-heading">
           <h2 id="about-heading">Über mich</h2>
-          <p>Ich entwickle performancekritische Systeme über den gesamten Stack hinweg und messe konsequent nach, was sie leisten: CUDA-Kernel, die sich an Herstellerbibliotheken messen lassen, parallele numerische Laufzeiten auf MPI und Threads, Trainings- und Inferenzwerkzeuge für PyTorch sowie hardwarenahe Projekte, vom MLIR-Compiler-Backend bis zum formal verifizierten asynchronen FIFO-IP. Begonnen habe ich im Maschinenbau, wo ich physische Systeme gebaut habe. Ins Computational Engineering bin ich gewechselt, um die Software zu schreiben, die solche Systeme simuliert und beschleunigt.</p>
+          <p>Ich schreibe performancekritischen Systemcode und messe ihn an der besten Referenz, die ich bekommen kann, in der Regel die Herstellerbibliothek oder das Limit der Hardware. Jedes Projekt hier veröffentlicht seine Zahlen und das Messgerüst, das sie erzeugt hat, denn ein Speedup, den niemand reproduzieren kann, ist eine Behauptung und kein Ergebnis. Begonnen habe ich im Maschinenbau, wo ich physische Systeme gebaut habe. Ins Computational Engineering bin ich gewechselt, um die Software zu schreiben, die solche Systeme simuliert und beschleunigt.</p>
         </section>
 
         <section class="selected-work" aria-labelledby="work-heading">
           <h2 id="work-heading">Ausgewählte Projekte</h2>
           <ul class="work-list">
             <li class="work-item">
+              <a href="https://github.com/Olajide-Badejo/CUDA-Kernel-Library" target="_blank" rel="noopener">CUDA-Kernel-Library</a>
+              <p>Eine GEMM-Staffel von einem naiven Kernel mit 1.908 GFLOP/s bis zu 54.985 GFLOP/s mit mma.sync, ldmatrix und geswizzeltem Shared Memory, also 90 % von cuBLAS in FP16 auf derselben GPU, bei 83 % des Speed-of-Light-Limits der Tensor-Pipe. Jede Stufe ist ein eigener Kernel, dessen Profiler-Lauf mit eingecheckt ist.</p>
+            </li>
+            <li class="work-item">
               <a href="https://github.com/Olajide-Badejo/MLIR-Backend-for-a-Simulated-Edge-NPU" target="_blank" rel="noopener">MLIR-Backend-for-a-Simulated-Edge-NPU</a>
-              <p>Ein Deep-Learning-Compiler-Backend, das ONNX-Modelle über eigene MLIR-Dialekte in einen binären Befehlsstrom für eine simulierte NPU übersetzt.</p>
+              <p>Ein Deep-Learning-Compiler-Backend, das ONNX über eigene MLIR-Dialekte in einen binären Befehlsstrom für eine simulierte NPU übersetzt. Bei LeNet senkt -O2 die Instruktionszahl von 91 auf 70, die simulierten Zyklen von 23.421 auf 12.710 und den DRAM-Traffic von 339 KB auf 177 KB; die Ausgabe stimmt bis auf 3e-8 mit onnxruntime überein.</p>
             </li>
             <li class="work-item">
               <a href="https://github.com/Olajide-Badejo/Parallel-Numerical-Library" target="_blank" rel="noopener">Parallel-Numerical-Library</a>
-              <p>Eine C++23-Bibliothek, deren iterative Löser unverändert auf seriellen, OpenMP-, Thread-, MPI- und CUDA-Backends laufen und dabei bitidentische Ergebnisse liefern.</p>
-            </li>
-            <li class="work-item">
-              <a href="https://github.com/Olajide-Badejo/Low-Power-Async-CDC-FIFO-IP" target="_blank" rel="noopener">Low-Power-Async-CDC-FIFO-IP</a>
-              <p>Ein parametrierbarer asynchroner FIFO für Clock-Domain-Crossing in SystemVerilog, mit Gray-Code-Zeigern, Low-Power-Intent und formaler Verifikation.</p>
-            </li>
-            <li class="work-item">
-              <a href="https://github.com/Olajide-Badejo/CUDA-Kernel-Library" target="_blank" rel="noopener">CUDA-Kernel-Library</a>
-              <p>Ein CUDA-GEMM, das in dokumentierten, profilergestützten Optimierungsrunden von der naiven Basisversion bis zu Tensor Cores geführt und dabei auf derselben GPU gegen cuBLAS gemessen wurde.</p>
-            </li>
-            <li class="work-item">
-              <a href="https://github.com/Olajide-Badejo/Ring-AllReduce" target="_blank" rel="noopener">Ring-AllReduce</a>
-              <p>Ein Ring-Allreduce, allein aus MPI-Punkt-zu-Punkt-Primitiven aufgebaut.</p>
+              <p>Eine C++23-Bibliothek, deren iterative Löser unverändert auf seriellen, OpenMP-, Thread-, MPI- und CUDA-Backends laufen und dabei bitidentische Ergebnisse liefern. Gemessen an der jeweils eigenen STREAM-Bandbreite des Geräts, 62,3 GiB/s auf der CPU und 549,7 GiB/s auf der GPU, erreicht Red-Black-Gauß-Seidel 45,7 % beziehungsweise 47,1 %. 440 Konfigurationen, in 23 Minuten vollständig reproduzierbar.</p>
             </li>
             <li class="work-item">
               <a href="https://github.com/Olajide-Badejo/Particle-Physics-Simulation" target="_blank" rel="noopener">Particle-Physics-Simulation</a>
-              <p>Eine CUDA-Engine für N-Body-Gravitation und SPH-Fluide, bei der jeder Optimierungsschritt gemessen und die Korrektheit über Erhaltungs- und Verteilungstests abgesichert wird.</p>
+              <p>Eine CUDA-Engine für N-Body-Gravitation und SPH-Fluide mit 17,47 TFLOP/s in FP32, wobei Shared-Memory-Tiling bei 200.000 Partikeln 1,93x schneller ist als der naive Kernel. Die Korrektheit sichern zehn Tests ab, darunter eine Energiedrift von 1,33e-05 über 10.000 Schritte.</p>
+            </li>
+            <li class="work-item">
+              <a href="https://github.com/Olajide-Badejo/Ring-AllReduce" target="_blank" rel="noopener">Ring-AllReduce</a>
+              <p>Ein Ring-Allreduce, allein aus MPI-Punkt-zu-Punkt-Primitiven aufgebaut und anschließend an das Alpha-Beta-Kostenmodell angepasst: 0,250 us pro Nachricht, 305,4 ps pro Byte, R-Quadrat 0,981 über 375 Punkte. Die Dokumentation benennt ausdrücklich, wo das Verfahren gegen das Hersteller-Collective verliert und warum.</p>
+            </li>
+            <li class="work-item">
+              <a href="https://github.com/Olajide-Badejo/Low-Power-Async-CDC-FIFO-IP" target="_blank" rel="noopener">Low-Power-Async-CDC-FIFO-IP</a>
+              <p>Ein parametrierbarer asynchroner FIFO für Clock-Domain-Crossing in SystemVerilog, mit Gray-Code-Zeigern und Low-Power-Intent, in SymbiYosys beschränkt bewiesen und über 60 Konfigurationen hinweg auf Fläche, Leistung und Timing vermessen.</p>
             </li>
           </ul>
           <p class="work-more">Weitere Repositories, darunter ein Out-of-Tree-<a href="https://github.com/Olajide-Badejo/LLVM-Optimization-Pass-Framework" target="_blank" rel="noopener">LLVM-Pass-Framework</a>, CPU-Mikrobenchmarks, GPU-Roofline-Profiling, MPI-Collective-Benchmarks und Werkzeuge für ML-Experimente, finden sich auf <a href="https://github.com/Olajide-Badejo?tab=repositories" target="_blank" rel="noopener">meinem GitHub-Profil</a>.</p>
@@ -97,15 +97,15 @@
             </div>
             <div class="skill-group">
               <dt>GPU und HPC</dt>
-              <dd>CUDA-Kernel-Optimierung, OpenMP, MPI, pthreads und C++-Threads, SIMD (AVX2, NEON), Nsight-Profiling, Roofline-Analyse</dd>
+              <dd>CUDA-Kernel-Optimierung, Tensor-Core-Programmierung (mma.sync, WMMA), OpenMP, MPI, pthreads und C++-Threads, SIMD (AVX2, NEON), Nsight-Profiling, Roofline- und Speed-of-Light-Analyse</dd>
+            </div>
+            <div class="skill-group">
+              <dt>Compiler und Hardware</dt>
+              <dd>MLIR, LLVM, ONNX-Lowering, RTL-Design und formale Verifikation (SymbiYosys), Yosys- und OpenSTA-Flows</dd>
             </div>
             <div class="skill-group">
               <dt>ML und Frameworks</dt>
               <dd>PyTorch, torch.distributed, NumPy, pandas, Experiment-Tracking und Trainingsdiagnostik</dd>
-            </div>
-            <div class="skill-group">
-              <dt>Compiler und Hardware</dt>
-              <dd>MLIR, LLVM, RTL-Design und formale Verifikation (SymbiYosys), Yosys- und OpenSTA-Flows</dd>
             </div>
             <div class="skill-group">
               <dt>Werkzeuge</dt>
